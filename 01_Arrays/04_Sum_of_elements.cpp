@@ -12,6 +12,17 @@ int SumOfArray(int arr[], int n){
     return sum;
 }
 
+int ProductOfArray(int arr[], int n){
+    int product = 1;
+
+    for(int i = 0; i < n; i++){
+        product *= arr[i];
+    }
+
+    return product;
+
+}
+
 int main(){
 
 int n;
@@ -27,6 +38,8 @@ int n;
     }
 
     cout<<"Sum of elements: "<<SumOfArray(arr,n)<<endl;
+
+    cout<<"Product of elements: "<<ProductOfArray(arr,n)<<endl;
 
     return 0;
 
