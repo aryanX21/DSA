@@ -20,10 +20,10 @@ int main(){
 
     cout<<endl;
 
-    vector<int> vec3 (4,0);  /* here 4 is the size of vector and 0 is used to 
-                                 initiallize alll 8 */
+    vector<int> vec3 (4,0);  /*  here 4 is the size of vector and 0 is used to 
+                                 initiallize all values with 0 */
 
-    for( int i : vec3){             // in this loop i gives the value at that index
+    for( int i : vec3){         
         cout<<i<<" ";
     }
 
