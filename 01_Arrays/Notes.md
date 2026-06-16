@@ -28,16 +28,63 @@ An Algorithm is a step-by-step procedure used to solve a problem or perform a sp
 
 ---
 
-## Array
+## Static Memory Allocation
 
-An Array is a collection of elements of the same data type stored in contiguous memory locations.
+Static Memory Allocation is memory that is allocated before program execution and whose size cannot be changed during runtime.
+
+### Example
+
+```cpp
+int arr[5];
+```
+
+### Memory Location
+
+```text
+Stack Memory
+```
 
 ### Characteristics
 
-* Stores multiple values of the same data type.
-* Elements are stored in contiguous memory.
-* Accessed using an index.
-* Index starts from 0.
+* Fixed size
+* Fast access
+* Cannot resize during execution
+
+---
+
+## Dynamic Memory Allocation
+
+Dynamic Memory Allocation is memory that is allocated during program execution and whose size can be determined at runtime.
+
+### Example
+
+```cpp
+int* arr = new int[5];
+```
+
+### Memory Location
+
+```text
+Heap Memory
+```
+
+### Characteristics
+
+* Size decided at runtime
+* Can allocate large memory
+* Must be manually released using delete
+
+### Deallocation
+
+```cpp
+delete[] arr;
+```
+
+---
+
+## Array
+
+An Array is a collection of elements of the same data type stored in contiguous memory locations.
 
 ### Syntax
 
@@ -58,17 +105,60 @@ cout << arr[0];
 cout << arr[2];
 ```
 
+### Memory Type
+
+```text
+Static Memory Allocation
+```
+
+### Memory Location
+
+```text
+Stack Memory
+```
+
+### Characteristics
+
+* Fixed size
+* Contiguous memory allocation
+* Fast random access using index
+* Stores same data type elements
+
+---
+
+## Dynamic Array
+
+A Dynamic Array is an array whose size is determined during runtime.
+
+### Syntax
+
+```cpp
+int* arr = new int[n];
+```
+
+### Memory Type
+
+```text
+Dynamic Memory Allocation
+```
+
+### Memory Location
+
+```text
+Heap Memory
+```
+
+### Deallocation
+
+```cpp
+delete[] arr;
+```
+
 ---
 
 ## Vector
 
-A Vector is a dynamic array provided by the C++ Standard Template Library (STL) that can grow or shrink automatically during runtime.
-
-### Advantages
-
-* Dynamic size
-* Easy insertion and deletion
-* Provides useful built-in functions
+A Vector is a dynamic array provided by the C++ Standard Template Library (STL) that can automatically grow and shrink during runtime.
 
 ### Syntax
 
@@ -102,3 +192,35 @@ v.size();
 v.front();
 v.back();
 ```
+
+### Memory Type
+
+```text
+Dynamic Memory Allocation
+```
+
+### Memory Location
+
+```text
+Heap Memory
+```
+
+### Advantages
+
+* Dynamic size
+* Automatic memory management
+* Easy insertion and deletion
+* Built-in functions available
+
+---
+
+## Quick Revision
+
+| Structure                   | Memory Type      | Memory Location |
+| --------------------------- | ---------------- | --------------- |
+| `int arr[5]`                | Static           | Stack           |
+| `int* arr = new int[5]`     | Dynamic          | Heap            |
+| `vector<int> v`             | Dynamic          | Heap            |
+| Local Variables             | Static/Automatic | Stack           |
+| Objects created using `new` | Dynamic          | Heap            |
+
