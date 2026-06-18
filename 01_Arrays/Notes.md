@@ -224,3 +224,11 @@ Heap Memory
 | Local Variables             | Static/Automatic | Stack           |
 | Objects created using `new` | Dynamic          | Heap            |
 
+
+
+## Problem - Single Number
+
+Given a vector where every element appears twice except one, find the unique element.
+
+Approach:
+Use the XOR operator. Duplicate elements cancel each other out because a ^ a = 0. After XORing all elements, the remaining value is the unique element.
