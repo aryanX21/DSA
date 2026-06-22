@@ -1,7 +1,7 @@
 /*
 Question:
 Given a vector of integers and a target value,
-find a pair of elements whose sum is equal to the target.
+return the indices of two numbers whose sum is equal to the target.
 
 Approach:
 Brute Force
@@ -9,27 +9,39 @@ Brute Force
 Logic:
 1. Traverse each element of the vector.
 2. For every element, check all remaining elements.
-3. If the sum of the pair equals the target,
-   print the indices and values of the pair.
-4. Stop searching once the first valid pair is found.
+3. If the sum equals the target, store the indices.
+4. Return the indices immediately after finding the first valid pair.
 
 Example:
 Input:
-Vector = [2, 7, 11, 15]
-Target = 9
+nums = [2, 7, 11, 15]
+target = 9
 
 Output:
-Target Found!
-Index of Pair: (0, 1)
-Pair: (2, 7)
+[0, 1]
 
 Time Complexity: O(n²)
 Space Complexity: O(1)
 */
-
 #include<iostream>
 #include<vector>
 using namespace std;
+
+vector<int> pairSum(vector<int> &nums, int tgt){
+    vector<int> ans;
+
+    for(int i = 0; i < nums.size(); i++){
+        for(int j = i + 1; j < nums.size(); j++){
+            if(nums[i] + nums[j] == tgt){
+                ans.push_back(i);
+                ans.push_back(j);
+                return ans;
+            }
+        }
+    }
+
+    return ans;
+}
 
 int main(){
 
@@ -38,7 +50,7 @@ int main(){
     cout<<"Enter the size of vector: ";
     cin>>n;
 
-    vector<int> vec;
+    vector<int> nums;
 
     cout<<"Enter elements: ";
 
@@ -47,7 +59,7 @@ int main(){
         int x;
         cin>>x;
 
-        vec.push_back(x);
+        nums.push_back(x);
     }
 
     int tgt;
@@ -55,36 +67,13 @@ int main(){
     cout<<"Enter Target: ";
     cin>>tgt;
 
-    bool found = false;
+    vector<int> ans = pairSum(nums, tgt);
 
-    for(int i = 0; i < vec.size(); i++){
-
-        for(int j = i + 1; j < vec.size(); j++){
-
-            int sum = vec[i] + vec[j];
-
-            if(sum == tgt){
-
-                cout<<"Target Found!\n";
-
-                cout<<"Index of Pair: "
-                    <<"("<<i<<", "<<j<<")"<<endl;
-
-                cout<<"Pair: "
-                    <<"("<<vec[i]<<", "<<vec[j]<<")"<<endl;
-
-                found = true;
-                break;
-            }
-        }
-
-        if(found){
-            break;
-        }
+    if(ans.size() == 2){
+        cout<<"("<<ans[0]<<", "<<ans[1]<<")"<<endl;
     }
 
-    if(!found){
-
+    else{
         cout<<"Target Not Found"<<endl;
     }
 
