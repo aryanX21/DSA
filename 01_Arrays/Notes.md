@@ -407,3 +407,119 @@ O(1)
 * Kadane's Algorithm is the optimal solution for Maximum Subarray Sum.
 * Two Pointer Technique is the optimal solution for Pair Sum on sorted arrays.
 * Always try to reduce nested loops to improve time complexity.
+
+# Majority Element Notes
+
+## What is a Majority Element?
+
+A **Majority Element** is an element that appears **more than n/2 times** in an array or vector.
+
+**Example:**
+
+```text
+Input:  [2, 2, 1, 1, 1, 2, 2]
+Output: 2
+```
+
+Frequency of `2` = 4
+
+Array size = 7
+
+Since `4 > 7/2`, `2` is the Majority Element.
+
+---
+
+# Approach 1: Brute Force
+
+### Logic
+
+1. Select each element one by one.
+2. Count its frequency by traversing the entire array.
+3. If frequency is greater than `n/2`, return that element.
+
+### Time Complexity
+
+```text
+O(n²)
+```
+
+### Space Complexity
+
+```text
+O(1)
+```
+
+---
+
+# Approach 2: Sorting
+
+### Logic
+
+1. Sort the array.
+2. Equal elements become adjacent.
+3. Count consecutive occurrences of every element.
+4. If frequency becomes greater than `n/2`, return that element.
+
+### Time Complexity
+
+```text
+O(n log n)
+```
+
+### Space Complexity
+
+```text
+O(1)
+```
+
+---
+
+# Approach 3: Moore's Voting Algorithm
+
+### Logic
+
+1. Maintain a **candidate** and a **count**.
+2. If `count == 0`, choose the current element as the new candidate.
+3. If the current element equals the candidate, increment the count.
+4. Otherwise, decrement the count.
+5. After one traversal, the remaining candidate is the Majority Element.
+
+### Why It Works
+
+Every occurrence of a non-majority element cancels one occurrence of the current candidate.
+
+Since the Majority Element appears **more than n/2 times**, it cannot be completely canceled and remains as the final candidate.
+
+---
+
+## Verification Step
+
+If the problem **does not guarantee** the existence of a Majority Element:
+
+1. Find the candidate using Moore's Voting Algorithm.
+2. Traverse the array again.
+3. Count the candidate's frequency.
+4. If frequency is greater than `n/2`, return it.
+5. Otherwise, report that no Majority Element exists.
+
+---
+
+# Complexity Comparison
+
+| Approach                 | Time Complexity | Space Complexity |
+| ------------------------ | --------------- | ---------------- |
+| Brute Force              | O(n²)           | O(1)             |
+| Sorting                  | O(n log n)      | O(1)             |
+| Moore's Voting Algorithm | O(n)            | O(1)             |
+
+---
+
+# Key Points
+
+* Majority Element appears **more than n/2 times**.
+* Brute Force checks the frequency of every element.
+* Sorting groups identical elements together.
+* Moore's Voting Algorithm is the optimal solution.
+* If the problem does **not** guarantee a Majority Element, always verify the final candidate with one additional traversal.
+
+---
