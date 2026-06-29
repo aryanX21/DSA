@@ -77,3 +77,96 @@ For very large inputs, **Algorithm B** will be significantly faster and more eff
 
 > **Key Point:**  
 > A good algorithm minimizes both **execution time** and **memory usage**.
+
+
+# Big O Notation
+
+## What is Big O Notation?
+
+**Big O Notation** is a mathematical way of describing the **time complexity** or **space complexity** of an algorithm.
+
+It tells us how the performance of an algorithm changes as the input size (`n`) increases.
+
+Big O focuses on the **worst-case performance** of an algorithm.
+
+---
+
+# O(1) — Constant Time
+
+## Definition
+
+An algorithm has **O(1)** time complexity if the number of operations remains **constant**, regardless of the input size.
+
+Whether there are 10 elements or 1,000,000 elements, the algorithm performs the same number of operations.
+
+### Example
+
+```cpp
+int first = arr[0];
+```
+
+Accessing the first element always takes one operation.
+
+### Characteristics
+
+* Fastest time complexity.
+* Does not depend on input size.
+* Constant execution time.
+
+---
+
+# O(n) — Linear Time
+
+## Definition
+
+An algorithm has **O(n)** time complexity if the number of operations increases **linearly** with the input size.
+
+If the input size doubles, the number of operations also approximately doubles.
+
+### Example
+
+```cpp
+for(int i = 0; i < n; i++){
+    cout << arr[i] << " ";
+}
+```
+
+The loop runs exactly `n` times.
+
+### Characteristics
+
+* Performance depends directly on input size.
+* Very common in searching and traversing arrays or vectors.
+* Efficient for most practical problems.
+
+---
+
+# Difference Between O(1) and O(n)
+
+| O(1)                      | O(n)                         |
+| ------------------------- | ---------------------------- |
+| Constant Time             | Linear Time                  |
+| Independent of input size | Depends on input size        |
+| Same number of operations | Operations increase with `n` |
+| Faster                    | Slower than O(1)             |
+
+---
+
+# Examples
+
+| Operation                     | Time Complexity |
+| ----------------------------- | --------------- |
+| Access first element of array | O(1)            |
+| Access last element by index  | O(1)            |
+| Traverse an array             | O(n)            |
+| Find maximum element          | O(n)            |
+| Calculate sum of all elements | O(n)            |
+
+---
+
+## Key Points
+
+* **Big O Notation** measures the efficiency of an algorithm.
+* **O(1)** means constant execution time.
+* **O(n)** means execution time grows linearly with input size.
+* Lower time complexity generally indicates a more efficient algorithm.
