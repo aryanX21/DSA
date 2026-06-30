@@ -170,3 +170,112 @@ The loop runs exactly `n` times.
 * **O(1)** means constant execution time.
 * **O(n)** means execution time grows linearly with input size.
 * Lower time complexity generally indicates a more efficient algorithm.
+
+
+# O(log n) — Logarithmic Time
+
+## Definition
+
+An algorithm has **O(log n)** time complexity if the number of operations increases **very slowly** as the input size increases.
+
+Instead of checking every element, the algorithm repeatedly **reduces the search space by half**.
+
+### Example
+
+**Binary Search**
+
+```cpp
+while(low <= high){
+    int mid = low + (high - low) / 2;
+
+    if(arr[mid] == target)
+        return mid;
+
+    else if(arr[mid] < target)
+        low = mid + 1;
+
+    else
+        high = mid - 1;
+}
+```
+
+### Characteristics
+
+* Very efficient for large datasets.
+* Common in Binary Search and Divide & Conquer algorithms.
+* Search space is reduced by half in every iteration.
+
+---
+
+# O(n²) — Quadratic Time
+
+## Definition
+
+An algorithm has **O(n²)** time complexity if the number of operations grows proportionally to the **square of the input size**.
+
+It usually occurs when **two nested loops** traverse the same data structure.
+
+### Example
+
+```cpp
+for(int i = 0; i < n; i++){
+    for(int j = 0; j < n; j++){
+        cout << arr[i] << " " << arr[j];
+    }
+}
+```
+
+### Characteristics
+
+* Usually caused by nested loops.
+* Suitable only for small input sizes.
+* Performance decreases significantly as input size grows.
+
+---
+
+# O(n³) — Cubic Time
+
+## Definition
+
+An algorithm has **O(n³)** time complexity if the number of operations grows proportionally to the **cube of the input size**.
+
+It usually occurs when **three nested loops** are used.
+
+### Example
+
+```cpp
+for(int i = 0; i < n; i++){
+    for(int j = 0; j < n; j++){
+        for(int k = 0; k < n; k++){
+            cout << arr[i] << arr[j] << arr[k];
+        }
+    }
+}
+```
+
+### Characteristics
+
+* Usually caused by three nested loops.
+* Very slow for large inputs.
+* Often seen in brute-force algorithms.
+
+---
+
+# Complexity Comparison
+
+| Complexity | Growth Rate | Common Example                      |
+| ---------- | ----------- | ----------------------------------- |
+| O(1)       | Constant    | Array index access                  |
+| O(log n)   | Logarithmic | Binary Search                       |
+| O(n)       | Linear      | Array Traversal                     |
+| O(n²)      | Quadratic   | Bubble Sort, Pair Sum (Brute Force) |
+| O(n³)      | Cubic       | Brute Force Maximum Subarray Sum    |
+
+---
+
+## Key Points
+
+* **O(log n):** Search space is reduced by half in every step.
+* **O(n²):** Usually caused by two nested loops.
+* **O(n³):** Usually caused by three nested loops.
+* Lower time complexity generally means better performance for large input sizes.
