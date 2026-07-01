@@ -279,3 +279,58 @@ for(int i = 0; i < n; i++){
 * **O(n²):** Usually caused by two nested loops.
 * **O(n³):** Usually caused by three nested loops.
 * Lower time complexity generally means better performance for large input sizes.
+
+
+# Best, Average and Worst Case
+
+## Best Case
+
+The **Best Case** is the minimum time an algorithm takes to execute for a particular input.
+
+### Example
+
+Searching for an element that is present at the first position of an array.
+
+```text
+Time Complexity: O(1)
+```
+
+---
+
+## Average Case
+
+The **Average Case** is the expected running time of an algorithm over all possible inputs.
+
+It represents the algorithm's performance for a typical input.
+
+### Example
+
+Searching for an element somewhere in the middle of an array.
+
+```text
+Time Complexity: O(n)
+```
+
+---
+
+## Worst Case
+
+The **Worst Case** is the maximum time an algorithm takes to execute.
+
+It represents the upper bound of an algorithm's running time and is the one most commonly used in DSA.
+
+### Example
+
+Searching for an element that is at the last position or not present in the array.
+
+```text
+Time Complexity: O(n)
+```
+
+---
+
+## Why Do We Prefer Worst Case?
+
+- Guarantees the maximum running time.
+- Helps compare algorithms fairly.
+- Most interview questions use Worst Case Time Complexity.
