@@ -334,3 +334,75 @@ Time Complexity: O(n)
 - Guarantees the maximum running time.
 - Helps compare algorithms fairly.
 - Most interview questions use Worst Case Time Complexity.
+
+
+# Rules for Calculating Time Complexity
+
+## Rule 1: Ignore Constants
+
+```cpp
+for(int i = 0; i < n; i++)
+```
+
+Time Complexity:
+
+```text
+O(n)
+```
+
+Even if the loop runs `2n` or `5n` times:
+
+```text
+O(2n) → O(n)
+O(5n) → O(n)
+```
+
+---
+
+## Rule 2: Consider the Highest Order Term
+
+```text
+O(n² + n + 10)
+```
+
+becomes
+
+```text
+O(n²)
+```
+
+because `n²` dominates for large values of `n`.
+
+---
+
+## Rule 3: Nested Loops Multiply
+
+```cpp
+for(...)
+    for(...)
+```
+
+```text
+O(n × n) = O(n²)
+```
+
+Three nested loops:
+
+```text
+O(n³)
+```
+
+---
+
+## Rule 4: Consecutive Loops Add
+
+```cpp
+for(...)
+for(...)
+```
+
+```text
+O(n + n)
+= O(2n)
+= O(n)
+```
