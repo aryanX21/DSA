@@ -406,3 +406,94 @@ O(n + n)
 = O(2n)
 = O(n)
 ```
+
+# How to Analyze Time Complexity
+
+## 1. Simple Statement
+
+A single operation takes constant time.
+
+### Example
+
+```cpp
+int x = 10;
+cout << x;
+```
+
+**Time Complexity:** `O(1)`
+
+---
+
+## 2. Single Loop
+
+A loop running `n` times has linear time complexity.
+
+### Example
+
+```cpp
+for(int i = 0; i < n; i++){
+    cout << arr[i];
+}
+```
+
+**Time Complexity:** `O(n)`
+
+---
+
+## 3. Nested Loops
+
+Multiply the complexities of nested loops.
+
+### Example
+
+```cpp
+for(int i = 0; i < n; i++){
+    for(int j = 0; j < n; j++){
+        cout << arr[i] << arr[j];
+    }
+}
+```
+
+**Time Complexity:** `O(n²)`
+
+---
+
+## 4. Consecutive Loops
+
+Add the complexities.
+
+### Example
+
+```cpp
+for(int i = 0; i < n; i++){
+    cout << arr[i];
+}
+
+for(int i = 0; i < n; i++){
+    cout << arr[i];
+}
+```
+
+**Time Complexity:**
+
+```text
+O(n + n)
+= O(2n)
+= O(n)
+```
+
+---
+
+## 5. Loop with Halving
+
+If the input is divided by 2 in every iteration, the complexity is logarithmic.
+
+### Example
+
+```cpp
+while(n > 1){
+    n /= 2;
+}
+```
+
+**Time Complexity:** `O(log n)`
