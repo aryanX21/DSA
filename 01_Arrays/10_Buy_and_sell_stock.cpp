@@ -1,3 +1,31 @@
+/*
+Question:
+Given a vector where each element represents the stock price on a particular day,
+find the maximum profit that can be earned by buying one stock and selling it later.
+
+Approach:
+Brute Force
+
+Logic:
+1. Choose every day as the buying day.
+2. Check every future day as the selling day.
+3. Calculate the profit for each buy-sell pair.
+4. Keep track of the maximum profit.
+
+Example:
+Input:
+[7, 1, 5, 3, 6, 4]
+
+Output:
+5
+
+Buy at 1
+Sell at 6
+
+Time Complexity: O(n²)
+Space Complexity: O(1)
+*/
+
 #include<iostream>
 #include<vector>
 using namespace std;
