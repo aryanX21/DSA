@@ -523,3 +523,117 @@ If the problem **does not guarantee** the existence of a Majority Element:
 * If the problem does **not** guarantee a Majority Element, always verify the final candidate with one additional traversal.
 
 ---
+
+# Buy and Sell Stock Notes
+
+## Problem Statement
+
+Given a vector where each element represents the stock price on a particular day, find the **maximum profit** that can be earned by buying one stock and selling it later.
+
+> **Note:** You can complete **only one transaction** (buy once and sell once).
+
+---
+
+# Example
+
+```text
+Input:
+[7, 1, 5, 3, 6, 4]
+
+Output:
+5
+```
+
+Explanation:
+
+```text
+Buy at price = 1
+Sell at price = 6
+
+Profit = 6 - 1 = 5
+```
+
+---
+
+# Approach 1: Brute Force
+
+## Logic
+
+1. Select every day as the **buy day**.
+2. Check all future days as the **sell day**.
+3. Calculate the profit for every buy-sell pair.
+4. Store the maximum profit obtained.
+
+### Pseudocode
+
+```text
+maxProfit = 0
+
+for every buy day
+    for every future sell day
+        profit = sellPrice - buyPrice
+        update maximum profit
+```
+
+---
+
+## Dry Run
+
+```text
+Prices = [7, 1, 5, 3, 6, 4]
+```
+
+| Buy Price | Sell Price | Profit |
+| --------- | ---------- | ------ |
+| 7         | 1          | -6     |
+| 7         | 5          | -2     |
+| 7         | 3          | -4     |
+| 7         | 6          | -1     |
+| 7         | 4          | -3     |
+| 1         | 5          | 4      |
+| 1         | 3          | 2      |
+| 1         | 6          | 5 ✅    |
+| 1         | 4          | 3      |
+| 5         | 3          | -2     |
+| 5         | 6          | 1      |
+| 5         | 4          | -1     |
+| 3         | 6          | 3      |
+| 3         | 4          | 1      |
+| 6         | 4          | -2     |
+
+**Maximum Profit = 5**
+
+---
+
+## Time Complexity
+
+```text
+O(n²)
+```
+
+## Space Complexity
+
+```text
+O(1)
+```
+
+---
+
+# Key Points
+
+* Buy the stock **before** selling it.
+* Check only future days for selling.
+* Keep track of the maximum profit.
+* If no profit is possible, return **0**.
+* This is the **brute force** solution.
+
+---
+
+# Next Optimization
+
+The optimal solution keeps track of the **minimum buying price** seen so far and calculates the maximum profit in a single traversal.
+
+```text
+Time Complexity: O(n)
+Space Complexity: O(1)
+```
