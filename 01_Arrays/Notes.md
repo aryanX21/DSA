@@ -637,3 +637,130 @@ The optimal solution keeps track of the **minimum buying price** seen so far and
 Time Complexity: O(n)
 Space Complexity: O(1)
 ```
+
+
+# Buy and Sell Stock (Optimized)
+
+## Idea
+
+Instead of checking every buy-sell pair, keep track of the **minimum stock price** seen so far while traversing the array.
+
+For each day:
+
+* Assume today's price is the selling price.
+* Calculate the profit using the minimum buying price.
+* Update the maximum profit if the current profit is greater.
+* Update the minimum price if today's price is smaller.
+
+---
+
+# Logic
+
+1. Initialize:
+
+   * `minPrice = prices[0]`
+   * `maxProfit = 0`
+2. Traverse the array from left to right.
+3. If the current price is smaller than `minPrice`, update `minPrice`.
+4. Otherwise, calculate:
+
+   ```text
+   profit = currentPrice - minPrice
+   ```
+5. Update `maxProfit` if the current profit is greater.
+6. Return `maxProfit`.
+
+---
+
+# Dry Run
+
+```text
+Prices = [7, 1, 5, 3, 6, 4]
+```
+
+| Price | Min Price | Current Profit | Max Profit |
+| ----- | --------- | -------------- | ---------- |
+| 7     | 7         | 0              | 0          |
+| 1     | 1         | 0              | 0          |
+| 5     | 1         | 4              | 4          |
+| 3     | 1         | 2              | 4          |
+| 6     | 1         | 5              | 5          |
+| 4     | 1         | 3              | 5          |
+
+**Maximum Profit = 5**
+
+---
+
+# Example
+
+```text
+Input:
+[7, 1, 5, 3, 6, 4]
+
+Output:
+5
+```
+
+Explanation:
+
+```text
+Buy at price = 1
+Sell at price = 6
+
+Profit = 5
+```
+
+---
+
+# Time Complexity
+
+```text
+O(n)
+```
+
+Only one traversal of the array is required.
+
+---
+
+# Space Complexity
+
+```text
+O(1)
+```
+
+Only two extra variables (`minPrice` and `maxProfit`) are used.
+
+---
+
+# Why is it Better?
+
+| Brute Force                | Optimized        |
+| -------------------------- | ---------------- |
+| Checks every buy-sell pair | Single traversal |
+| O(n²)                      | O(n)             |
+| O(1) Space                 | O(1) Space       |
+
+---
+
+# Key Points
+
+* Keep track of the **minimum buying price** seen so far.
+* Treat every next element as a potential selling price.
+* Update the maximum profit whenever a larger profit is found.
+* If prices always decrease, the maximum profit remains **0**.
+
+---
+
+# Interview Tip
+
+This problem teaches an important optimization technique:
+
+```text
+Brute Force (O(n²))
+        ↓
+Track Minimum Value
+        ↓
+Optimized Solution (O(n))
+```
+
+The idea of maintaining the **minimum (or maximum) value seen so far** is used in many DSA problems.
