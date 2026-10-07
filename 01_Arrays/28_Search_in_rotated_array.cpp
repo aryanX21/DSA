@@ -1,3 +1,29 @@
+/*
+    Search in Rotated Sorted Array - Binary Search
+
+    Description:
+    This program searches for a target element in a rotated sorted array
+    using Binary Search.
+
+    Approach:
+    1. Find the middle element of the current search range.
+    2. If nums[mid] is equal to the target, return mid.
+    3. Determine which half of the array is sorted.
+    4. If the left half is sorted, check whether the target lies
+       within the range of the left half.
+    5. If it does, search the left half; otherwise, search the right half.
+    6. If the right half is sorted, check whether the target lies
+       within the range of the right half.
+    7. If it does, search the right half; otherwise, search the left half.
+    8. Return -1 if the target is not found.
+
+    Time Complexity:
+    O(log n)
+
+    Space Complexity:
+    O(1)
+*/
+
 #include<iostream>
 #include<vector>
 using namespace std;
